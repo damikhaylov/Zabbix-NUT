@@ -80,6 +80,20 @@
                             </tags>
                         </item_prototype>
                         <item_prototype>
+                            <uuid>f9602043b90b4fc994f0113942293b1f</uuid>
+                            <name>UPS {#UPSNAME} Input Frequency</name>
+                            <key>upsmon[{#UPSNAME},input.frequency]</key>
+                            <delay>30</delay>
+                            <value_type>FLOAT</value_type>
+                            <units>Hz</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>UPS</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
                             <uuid>077680a689094d65a8e7982768b5018e</uuid>
                             <name>UPS {#UPSNAME} Input Voltage</name>
                             <key>upsmon[{#UPSNAME},input.voltage]</key>
@@ -98,6 +112,7 @@
                             <name>UPS {#UPSNAME} Output Frequency</name>
                             <key>upsmon[{#UPSNAME},output.frequency]</key>
                             <delay>30</delay>
+                            <value_type>FLOAT</value_type>
                             <units>Hz</units>
                             <tags>
                                 <tag>
