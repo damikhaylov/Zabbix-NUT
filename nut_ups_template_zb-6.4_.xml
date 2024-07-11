@@ -57,13 +57,36 @@
                             <key>upsmon[{#UPSNAME},battery.temperature]</key>
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
-                            <units>C</units>
+                            <units>°C</units>
                             <tags>
                                 <tag>
                                     <tag>Application</tag>
                                     <value>UPS</value>
                                 </tag>
                             </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>07adabb5f9054684a48e8be725635a25</uuid>
+                            <name>UPS {#UPSNAME} Temperature</name>
+                            <key>upsmon[{#UPSNAME},ups.temperature]</key>
+                            <delay>10</delay>
+                            <value_type>FLOAT</value_type>
+                            <units>°C</units>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>UPS</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>7f6cc36aed644a3cb82eaa55b961ad23</uuid>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.temperature])&gt;50</expression>
+                                    <name>UPS {#UPSNAME} Temperature</name>
+                                    <priority>HIGH</priority>
+                                    <type>MULTIPLE</type>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>9aae5ee128fd43c1b150195d191a8552</uuid>
