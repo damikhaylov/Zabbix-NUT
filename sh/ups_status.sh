@@ -38,7 +38,13 @@ else
       * )		echo 0 ;; #'unknown state' ;;
     esac
   else
-    /bin/upsc $ups $key  2>&1 | grep -v SSL
+    output=$(/bin/upsc $ups $key 2>&1 | grep -v SSL)
+
+    if [ "$output" == "Error: Variable not supported by UPS" ]; then
+        echo -1
+    else
+        echo "$output"
+    fi
   fi
 
 fi
