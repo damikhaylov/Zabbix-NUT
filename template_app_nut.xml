@@ -27,7 +27,7 @@
                         <item_prototype>
                             <uuid>6026f414c2434104a98376d2edbbd9de</uuid>
                             <name>UPS {#UPSNAME} Charge</name>
-                            <key>upsmon[{#UPSNAME},battery.charge]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},battery.charge]</key>
                             <delay>10</delay>
                             <units>%</units>
                             <tags>
@@ -39,13 +39,13 @@
                             <trigger_prototypes>
                                 <trigger_prototype>
                                     <uuid>7cf0bc49cac7455a9ed7849ac55d8556</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},battery.charge])&lt;40</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},battery.charge])&lt;40</expression>
                                     <name>UPS {#UPSNAME} Charge &lt; 40%</name>
                                     <priority>DISASTER</priority>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>914901e5f66244d2b4d0313b02f31925</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},battery.charge])&lt;90</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},battery.charge])&lt;90</expression>
                                     <name>UPS {#UPSNAME} Charge &lt; 90%</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
@@ -54,7 +54,7 @@
                         <item_prototype>
                             <uuid>53046fe1bc574822913bd54ec9ea6f1f</uuid>
                             <name>UPS {#UPSNAME} Batt Temperature</name>
-                            <key>upsmon[{#UPSNAME},battery.temperature]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},battery.temperature]</key>
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
@@ -68,7 +68,7 @@
                         <item_prototype>
                             <uuid>07adabb5f9054684a48e8be725635a25</uuid>
                             <name>UPS {#UPSNAME} Temperature</name>
-                            <key>upsmon[{#UPSNAME},ups.temperature]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},ups.temperature]</key>
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
                             <units>°C</units>
@@ -81,7 +81,7 @@
                             <trigger_prototypes>
                                 <trigger_prototype>
                                     <uuid>7f6cc36aed644a3cb82eaa55b961ad23</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.temperature])&gt;50</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.temperature])&gt;50</expression>
                                     <name>UPS {#UPSNAME} Temperature</name>
                                     <priority>HIGH</priority>
                                     <type>MULTIPLE</type>
@@ -91,7 +91,7 @@
                         <item_prototype>
                             <uuid>9aae5ee128fd43c1b150195d191a8552</uuid>
                             <name>UPS {#UPSNAME} Battery Voltage</name>
-                            <key>upsmon[{#UPSNAME},battery.voltage]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},battery.voltage]</key>
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
                             <units>Volts</units>
@@ -105,7 +105,7 @@
                         <item_prototype>
                             <uuid>f9602043b90b4fc994f0113942293b1f</uuid>
                             <name>UPS {#UPSNAME} Input Frequency</name>
-                            <key>upsmon[{#UPSNAME},input.frequency]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},input.frequency]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
                             <units>Hz</units>
@@ -119,7 +119,7 @@
                         <item_prototype>
                             <uuid>077680a689094d65a8e7982768b5018e</uuid>
                             <name>UPS {#UPSNAME} Input Voltage</name>
-                            <key>upsmon[{#UPSNAME},input.voltage]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},input.voltage]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
                             <units>Volts</units>
@@ -133,7 +133,7 @@
                         <item_prototype>
                             <uuid>3b8ad82e3c7c458281c3cd3e8fe5c605</uuid>
                             <name>UPS {#UPSNAME} Output Frequency</name>
-                            <key>upsmon[{#UPSNAME},output.frequency]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},output.frequency]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
                             <units>Hz</units>
@@ -147,7 +147,7 @@
                         <item_prototype>
                             <uuid>68d44e57a2684e9281ede41e6232e2a2</uuid>
                             <name>UPS {#UPSNAME} Output Voltage</name>
-                            <key>upsmon[{#UPSNAME},output.voltage]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},output.voltage]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
                             <units>Volts</units>
@@ -161,7 +161,7 @@
                         <item_prototype>
                             <uuid>02884c4829be49618bad947865e49ad3</uuid>
                             <name>UPS {#UPSNAME} Load</name>
-                            <key>upsmon[{#UPSNAME},ups.load]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},ups.load]</key>
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
                             <units>%</units>
@@ -175,7 +175,7 @@
                         <item_prototype>
                             <uuid>5d4e30f7c56948eb8338986633444da9</uuid>
                             <name>UPS {#UPSNAME} Status</name>
-                            <key>upsmon[{#UPSNAME},ups.status]</key>
+                            <key>upsmon[{#UPSNAME},{#UPSHOST},ups.status]</key>
                             <delay>10</delay>
                             <valuemap>
                                 <name>UPS Battery Status</name>
@@ -189,84 +189,84 @@
                             <trigger_prototypes>
                                 <trigger_prototype>
                                     <uuid>9f4abaee0479435bbb798b0ee9c90913</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=5</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=5</expression>
                                     <name>UPS {#UPSNAME} Status - Battery is charging</name>
                                     <priority>INFO</priority>
                                     <description>The battery is charging</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>c7aae07f67cc4bebb2856096814fc3ff</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=12</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=12</expression>
                                     <name>UPS {#UPSNAME} Status - Boosting incoming voltage</name>
                                     <priority>INFO</priority>
                                     <description>UPS is boosting incoming voltage</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>57b77962eaaf40e2865c561ce487fcce</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=7</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=7</expression>
                                     <name>UPS {#UPSNAME} Status - Bypass</name>
                                     <priority>DISASTER</priority>
                                     <description>UPS bypass circuit is active echo no battery protection is available</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>8e9f5e101b9e456c86889fb52ec8ea9e</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=8</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=8</expression>
                                     <name>UPS {#UPSNAME} Status - Calibration</name>
                                     <priority>INFO</priority>
                                     <description>UPS is currently performing runtime calibration (on battery)</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>c75cd90be32644f188e8702cc3f66539</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=3</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=3</expression>
                                     <name>UPS {#UPSNAME} Status - Low battery</name>
                                     <priority>DISASTER</priority>
                                     <description>Low battery</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>44629a8b50ae495b8a4f1e247a188b9c</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=9</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=9</expression>
                                     <name>UPS {#UPSNAME} Status - Offline</name>
                                     <priority>DISASTER</priority>
                                     <description>UPS is offline and is not supplying power to the load</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>5e5c975d420e46b697d763dc2555ece5</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=2</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=2</expression>
                                     <name>UPS {#UPSNAME} Status - On battery</name>
                                     <priority>HIGH</priority>
                                     <description>On battery (mains is not present)</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>14a772103af045ff80caafc8e0d3fcdb</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=14</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=14</expression>
                                     <name>UPS {#UPSNAME} Status - On Battery ( discharging) mains not present</name>
                                     <priority>HIGH</priority>
                                     <description>UPS is currently On Battery ( discharging) mains not present</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>244f2fb2f9ee4674a7ca1ef19815d74b</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=13</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=13</expression>
                                     <name>UPS {#UPSNAME} Status - OnLine, battery is charging</name>
                                     <priority>INFO</priority>
                                     <description>UPS is currently On-Line</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>bc6707e00297449b824bf57bbfc85b02</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=10</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=10</expression>
                                     <name>UPS {#UPSNAME} Status - Overloaded</name>
                                     <priority>DISASTER</priority>
                                     <description>UPS is overloaded</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>7feffcefb78e4bd48ec2ba28db0a35ae</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=11</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=11</expression>
                                     <name>UPS {#UPSNAME} Status - Trimming incoming voltage</name>
                                     <priority>HIGH</priority>
                                     <description>UPS is trimming incoming voltage (called &quot;buck&quot; in some hardware)</description>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>f364980a59fa42d794ab5748959069e8</uuid>
-                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},ups.status])=0</expression>
+                                    <expression>last(/nut_ups template/upsmon[{#UPSNAME},{#UPSHOST},ups.status])=0</expression>
                                     <name>UPS {#UPSNAME} Status - Unknown state</name>
                                     <priority>DISASTER</priority>
                                     <description>Unknown state</description>
@@ -285,7 +285,7 @@
                                     <color>C80000</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},battery.temperature]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},battery.temperature]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -294,7 +294,7 @@
                                     <calc_fnc>ALL</calc_fnc>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},battery.voltage]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},battery.voltage]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -309,7 +309,7 @@
                                     <color>C80000</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},battery.charge]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},battery.charge]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -322,7 +322,7 @@
                                     <color>C80000</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},output.frequency]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},output.frequency]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -337,7 +337,7 @@
                                     <color>C80000</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},ups.load]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},ups.load]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -354,7 +354,7 @@
                                     <calc_fnc>ALL</calc_fnc>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},ups.status]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},ups.status]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -367,7 +367,7 @@
                                     <color>C80000</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},input.voltage]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},input.voltage]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -375,7 +375,7 @@
                                     <color>00C800</color>
                                     <item>
                                         <host>nut_ups template</host>
-                                        <key>upsmon[{#UPSNAME},output.voltage]</key>
+                                        <key>upsmon[{#UPSNAME},{#UPSHOST},output.voltage]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
