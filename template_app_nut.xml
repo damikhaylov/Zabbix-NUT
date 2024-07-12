@@ -383,6 +383,13 @@
                     </graph_prototypes>
                 </discovery_rule>
             </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$NUT.UPS_HOSTS}</macro>
+                    <value>localhost</value>
+                    <description>List of UPS hosts for discovery</description>
+                </macro>
+            </macros>
             <valuemaps>
                 <valuemap>
                     <uuid>4ca6506cc5464c7cb7ec54aaa53fccf9</uuid>
