@@ -2,18 +2,26 @@
 
 ups=$1
 
-if [ $ups = ups.discovery ]; then
+if [ "$ups" = "ups.discovery" ]; then
+  hosts=${2:-localhost}  # Default to 'localhost' if not provided
 
   echo -e "{\n\t\"data\":["
   first=1
-  /bin/upsc -l 2>&1 | grep -v SSL | while read discovered ; do
-    if [ $first -eq 0 ]; then
-      echo -e ","
-    fi
-    echo -en "\t\t{ \"{#UPSNAME}\":\t\"${discovered}\" }"
-    first=0
+
+  # Process the hosts (either provided or default to 'localhost')
+  for host in $hosts; do
+    /bin/upsc -l "$host" 2>&1 | grep -v SSL | while read discovered; do
+      if [[ ! "$discovered" =~ ^Error ]]; then
+        if [ $first -eq 0 ]; then
+          echo -e ","
+        fi
+        echo -e "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\" }"
+        first=0
+      fi
+    done
   done
-  echo -e "\n\t]\n}"
+
+  echo -e "\t]\n}"
 
 else
   key=$2
