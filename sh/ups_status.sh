@@ -7,7 +7,8 @@ if [ "$1" = "ups.discovery" ]; then
   first=1
 
   # Process the hosts (either provided or default to 'localhost')
-  for host in $hosts; do
+  IFS=',' read -ra ADDR <<< "$hosts"
+  for host in "${ADDR[@]}"; do
     /bin/upsc -l "$host" 2>&1 | grep -v SSL | while read discovered; do
       if [[ ! "$discovered" =~ ^Error ]]; then
         if [ $first -eq 0 ]; then
