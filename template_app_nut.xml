@@ -21,7 +21,7 @@
                 <discovery_rule>
                     <uuid>ea9540de8a82438688879c8ccdac8b90</uuid>
                     <name>UPS Discovery</name>
-                    <key>upsmon[ups.discovery]</key>
+                    <key>upsmon[ups.discovery, {$NUT.UPS_HOSTS}]</key>
                     <delay>30</delay>
                     <item_prototypes>
                         <item_prototype>
