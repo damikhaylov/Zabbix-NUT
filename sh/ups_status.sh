@@ -3,7 +3,7 @@
 if [ "$1" = "ups.discovery" ]; then
   hosts=${2:-localhost}  # Default to 'localhost' if not provided
 
-  echo -e "{\n\t\"data\":["
+  echo -e "{\n\t\"data\": ["
   first=1
 
   # Process the hosts (either provided or default to 'localhost')
@@ -19,13 +19,13 @@ if [ "$1" = "ups.discovery" ]; then
         if [ $first -eq 0 ]; then
           echo -e ","
         fi
-        echo -e "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\" }"
+        echo -en "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\" }"
         first=0
       fi
     done
   done
 
-  echo -e "\t]\n}"
+  echo -e "\n\t]\n}"
 
 else
 
