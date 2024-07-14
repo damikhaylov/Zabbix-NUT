@@ -9,7 +9,12 @@ if [ "$1" = "ups.discovery" ]; then
   # Process the hosts (either provided or default to 'localhost')
   IFS=',' read -ra ADDR <<< "$hosts"
   for host in "${ADDR[@]}"; do
-    /bin/upsc -l "$host" 2>&1 | grep -v SSL | while read discovered; do
+    # Capture the output of /bin/upsc
+    discovered_output=$(/bin/upsc -l "$host" 2>&1 | grep -v SSL)
+
+    # Process each line of the output
+    IFS=$'\n'  # Set IFS to newline for proper line splitting
+    for discovered in $discovered_output; do
       if [[ ! "$discovered" =~ ^Error ]]; then
         if [ $first -eq 0 ]; then
           echo -e ","
