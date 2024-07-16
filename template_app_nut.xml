@@ -35,6 +35,14 @@
                                     <tag>application</tag>
                                     <value>ups</value>
                                 </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
+                                </tag>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
@@ -63,6 +71,14 @@
                                     <tag>application</tag>
                                     <value>ups</value>
                                 </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
+                                </tag>
                             </tags>
                         </item_prototype>
                         <item_prototype>
@@ -76,6 +92,14 @@
                                 <tag>
                                     <tag>application</tag>
                                     <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
@@ -100,6 +124,14 @@
                                     <tag>application</tag>
                                     <value>ups</value>
                                 </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
+                                </tag>
                             </tags>
                         </item_prototype>
                         <item_prototype>
@@ -113,6 +145,14 @@
                                 <tag>
                                     <tag>application</tag>
                                     <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -128,6 +168,14 @@
                                     <tag>application</tag>
                                     <value>ups</value>
                                 </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
+                                </tag>
                             </tags>
                         </item_prototype>
                         <item_prototype>
@@ -141,6 +189,14 @@
                                 <tag>
                                     <tag>application</tag>
                                     <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -156,6 +212,14 @@
                                     <tag>application</tag>
                                     <value>ups</value>
                                 </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
+                                </tag>
                             </tags>
                         </item_prototype>
                         <item_prototype>
@@ -169,6 +233,14 @@
                                 <tag>
                                     <tag>application</tag>
                                     <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
                                 </tag>
                             </tags>
                         </item_prototype>
@@ -184,6 +256,14 @@
                                 <tag>
                                     <tag>application</tag>
                                     <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPSVISIBLENAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPSHOST}</value>
                                 </tag>
                             </tags>
                             <trigger_prototypes>
