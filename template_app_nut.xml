@@ -355,7 +355,17 @@
                         </item_prototype>
                     </item_prototypes>
                 </discovery_rule>
-            </discovery_rules>
+            </discovery_rules>        
+            <tags>
+                <tag>
+                    <tag>class</tag>
+                    <value>software</value>
+                </tag>
+                <tag>
+                    <tag>target</tag>
+                    <value>nut</value>
+                </tag>
+            </tags>
             <macros>
                 <macro>
                     <macro>{$NUT.UPS_HOSTS}</macro>
