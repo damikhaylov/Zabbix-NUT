@@ -19,7 +19,13 @@ if [ "$1" = "ups.discovery" ]; then
         if [ $first -eq 0 ]; then
           echo -e ","
         fi
-        echo -en "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\" }"
+        if [[ "$host" == "localhost" || "$host" == "127.0.0.1" ]]; then
+          visible_name="${discovered}"
+
+        else
+          visible_name="${discovered} (${host})"
+        fi
+        echo -en "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\", \"{#UPSVISIBLENAME}\": \"${visible_name}\" }"
         first=0
       fi
     done
