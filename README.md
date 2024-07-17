@@ -1,29 +1,32 @@
-Zabbix-NUT-Template
-===================
+# README.md
 
-Zabbix Template for NUT(Network UPS Tools)
+## Project Overview
 
-Supported UPS: http://www.networkupstools.org/stable-hcl.html
+This project is based on [Zabbix-NUT-Template](https://github.com/delin/Zabbix-NUT-Template).
 
+### Key Features
 
-# Value mapping
+- **Enhanced UPS Monitoring**: Added support for monitoring UPS units connected to remote hosts via NUT, accessible through `upsc ups@remote_host`.
+- **Customizable Discovery**: The list of hosts for UPS discovery is specified in the macro `{$NUT.UPS_HOSTS}`, with hosts separated by commas. The default value is `localhost`.
+- **Template Improvements**:
+  - Added tags to the template.
+  - Renamed template items to match the naming conventions of official Zabbix templates.
+  - Removed custom graphs that were identical to standard ones.
 
-Value mapping must be done before importing template. It can done in **Administration** / **General** / **Value mapping** (combobox on right side)
+### Usage
 
-Then **Create value map**
+1. **Macro Configuration**:
+   - Set the `{$NUT.UPS_HOSTS}` macro with a comma-separated list of hostnames where UPS discovery should be performed.
 
-	0  - unknown state
-	1  - On line (mains is present)
-	2  - On battery (mains is not present)
-	3  - Low battery
-	4  - The battery needs to be replaced
-	5  - The battery is charging
-	6  - The battery is discharging (inverter is providing load power)
-	7  - UPS bypass circuit is active echo no battery protection is available
-	8  - UPS is currently performing runtime calibration (on battery)
-	9  - UPS is offline and is not supplying power to the load
-	10 - UPS is overloaded
-	11 - UPS is trimming incoming voltage (called "buck" in some hardware)
-	12 - UPS is boosting incoming voltage
+2. **Template Tags**:
+   - Tags have been added to improve organization and classification.
 
-![Value mapping](https://raw.githubusercontent.com/blondak/Zabbix-NUT-Template/master/Configuration%20of%20value%20mapping.png)
+3. **Item Renaming**:
+   - Items within the template have been renamed to follow the naming conventions of official Zabbix templates, enhancing consistency and readability.
+
+4. **Graph Simplification**:
+   - Removed redundant custom graphs to streamline the template.
+
+## Conclusion
+
+This enhanced Zabbix template provides robust support for remote UPS monitoring via NUT, with improved naming conventions and streamlined features for better integration and usability.
