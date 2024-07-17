@@ -25,7 +25,7 @@ if [ "$1" = "ups.discovery" ]; then
         else
           visible_name="${discovered} (${host})"
         fi
-        echo -en "\t\t{ \"{#UPSNAME}\": \"${discovered}\", \"{#UPSHOST}\": \"${host}\", \"{#UPSVISIBLENAME}\": \"${visible_name}\" }"
+        echo -en "\t\t{ \"{#UPS.NAME}\": \"${discovered}\", \"{#UPS.HOST}\": \"${host}\", \"{#UPS.VISIBLE_NAME}\": \"${visible_name}\" }"
         first=0
       fi
     done
