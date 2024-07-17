@@ -22,7 +22,10 @@
                     <uuid>ea9540de8a82438688879c8ccdac8b90</uuid>
                     <name>UPS Discovery</name>
                     <key>upsmon[ups.discovery, {$NUT.UPS_HOSTS}]</key>
-                    <delay>30</delay>
+                    <delay>10m</delay>
+                    <lifetime>15d</lifetime>
+                    <enabled_lifetime_type>DISABLE_AFTER</enabled_lifetime_type>
+                    <enabled_lifetime>1h</enabled_lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <uuid>6026f414c2434104a98376d2edbbd9de</uuid>
