@@ -13,19 +13,31 @@ This project is based on [Zabbix-NUT-Template](https://github.com/delin/Zabbix-N
   - Renamed template items to match the naming conventions of official Zabbix templates.
   - Removed custom graphs that were identical to standard ones.
 
-### Usage
+## Installation Instructions
 
-1. **Macro Configuration**:
-   - Set the `{$NUT.UPS_HOSTS}` macro with a comma-separated list of hostnames where UPS discovery should be performed.
+### On the Monitoring Node
 
-2. **Template Tags**:
-   - Tags have been added to improve organization and classification.
+1. Place the `zabbix_nut_monitor.sh` script in a directory included in your shell's script path, such as `/usr/bin`.
+2. Add the `userparameter_nut.conf` file to the Zabbix agent configuration directory, which is typically `/etc/zabbix/zabbix_agentd.d` or `/etc/zabbix/zabbix_agentd2.d`.
+3. Restart the Zabbix agent to apply the changes:
 
-3. **Item Renaming**:
-   - Items within the template have been renamed to follow the naming conventions of official Zabbix templates, enhancing consistency and readability.
+   ```sh
+   sudo systemctl restart zabbix-agent
+   ```
 
-4. **Graph Simplification**:
-   - Removed redundant custom graphs to streamline the template.
+### On the Zabbix Server
+
+1. Upload the template file.
+2. Link the template to the host that will be used for NUT monitoring.
+
+### Discovery and Monitoring
+
+- UPS units defined in the NUT configuration on the host will be discovered automatically.
+- To monitor UPS units on remote hosts accessible via nutc, add their addresses to the {$NUT.UPS_HOSTS} macro along with localhost, separated by commas.
+
+### Deactivating Unsupported Data Items
+- Some data items defined in the template might not be supported by certain UPS units.
+- Unsupported data items can be deactivated as needed.
 
 ## Conclusion
 
