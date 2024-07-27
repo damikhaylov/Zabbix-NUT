@@ -10,7 +10,7 @@ if [ "$1" = "ups.discovery" ]; then
   IFS=',' read -ra ADDR <<< "$hosts"
   for host in "${ADDR[@]}"; do
     # Capture the output of /bin/upsc
-    discovered_output=$(/bin/upsc -l "$host" 2>&1 | grep -v SSL)
+    discovered_output=$(upsc -l "$host" 2>&1 | grep -v SSL)
 
     # Process each line of the output
     IFS=$'\n'  # Set IFS to newline for proper line splitting
@@ -44,7 +44,7 @@ else
   fi
 
   if [[ $key == ups.status ]]; then
-    state=$(/bin/upsc $ups $key 2>&1 | grep -v SSL)
+    state=$(upsc $ups $key 2>&1 | grep -v SSL)
     case "$state" in
       "OL")        echo 1 ;;  #'On line (mains is present)' ;;
       "OB")        echo 2 ;;  #'On battery' ;;
@@ -63,7 +63,7 @@ else
       *)           echo 0 ;;  #'unknown state' ;;
     esac
   else
-    output=$(/bin/upsc $ups $key 2>&1 | grep -v SSL)
+    output=$(upsc $ups $key 2>&1 | grep -v SSL)
 
     if [ "$output" == "Error: Variable not supported by UPS" ]; then
       echo -1
