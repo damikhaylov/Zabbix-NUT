@@ -23,9 +23,6 @@
                     <name>UPS Discovery</name>
                     <key>upsmon[ups.discovery, {$NUT.UPS_HOSTS}]</key>
                     <delay>10m</delay>
-                    <lifetime>15d</lifetime>
-                    <enabled_lifetime_type>DISABLE_AFTER</enabled_lifetime_type>
-                    <enabled_lifetime>1h</enabled_lifetime>
                     <item_prototypes>
                         <item_prototype>
                             <uuid>6026f414c2434104a98376d2edbbd9de</uuid>
@@ -122,6 +119,28 @@
                             <delay>10</delay>
                             <value_type>FLOAT</value_type>
                             <units>Volts</units>
+                            <tags>
+                                <tag>
+                                    <tag>application</tag>
+                                    <value>ups</value>
+                                </tag>
+                                <tag>
+                                    <tag>name</tag>
+                                    <value>{#UPS.VISIBLE_NAME}</value>
+                                </tag>
+                                <tag>
+                                    <tag>upshost</tag>
+                                    <value>{#UPS.HOST}</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>2cdf11bc4a1449d7a4afbbd5112f4876</uuid>
+                            <name>UPS [{#UPS.VISIBLE_NAME}]: Date of manufacture of batteries</name>
+                            <key>upsmon[{#UPS.NAME},{#UPS.HOST},battery.mfr.date]</key>
+                            <delay>1h</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
                             <tags>
                                 <tag>
                                     <tag>application</tag>
