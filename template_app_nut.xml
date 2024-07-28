@@ -85,8 +85,7 @@
                                     <uuid>67f7547bdc3647a3b534874dee8195c1</uuid>
                                     <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.temperature])&gt;{$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}</expression>
                                     <name>UPS [{#UPS.VISIBLE_NAME}]: Battery temperature &gt; {$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}°C</name>
-                                    <priority>HIGH</priority>
-                                    <type>MULTIPLE</type>
+                                    <priority>DISASTER</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
@@ -117,7 +116,6 @@
                                     <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.temperature])&gt;{$NUT.UPS.TEMPERATURE.MAX.WARN}</expression>
                                     <name>UPS [{#UPS.VISIBLE_NAME}]: UPS temperature &gt; {$NUT.UPS.TEMPERATURE.MAX.WARN}°C</name>
                                     <priority>HIGH</priority>
-                                    <type>MULTIPLE</type>
                                 </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
@@ -239,7 +237,7 @@
                             <key>upsmon[{#UPS.NAME},{#UPS.HOST},input.voltage]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
-                            <units>Volts</units>
+                            <units>V</units>
                             <tags>
                                 <tag>
                                     <tag>application</tag>
@@ -254,6 +252,20 @@
                                     <value>{#UPS.HOST}</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>b98314def2cb4187807d1db16891a39b</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},input.voltage])&lt;{$NUT.INPUT.VOLTAGE.MIN.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage &lt; {$NUT.INPUT.VOLTAGE.MIN.WARN} V</name>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>ff36836abca34153983f31914d7aa63b</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},input.voltage])&gt;{$NUT.INPUT.VOLTAGE.MAX.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage &gt; {$NUT.INPUT.VOLTAGE.MAX.WARN} V</name>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>                            
                         </item_prototype>
                         <item_prototype>
                             <uuid>3b8ad82e3c7c458281c3cd3e8fe5c605</uuid>
@@ -283,7 +295,7 @@
                             <key>upsmon[{#UPS.NAME},{#UPS.HOST},output.voltage]</key>
                             <delay>30</delay>
                             <value_type>FLOAT</value_type>
-                            <units>Volts</units>
+                            <units>V</units>
                             <tags>
                                 <tag>
                                     <tag>application</tag>
@@ -468,6 +480,16 @@
                     <macro>{$NUT.UPS.BATTERY.CHARGE.CRIT}</macro>
                     <value>30</value>
                     <description>Critical level of battery charge in percentage</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.INPUT.VOLTAGE.MIN.WARN}</macro>
+                    <value>208</value>
+                    <description>Minimum input voltage, V</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.INPUT.VOLTAGE.MAX.WARN}</macro>
+                    <value>253</value>
+                    <description>Maximum input voltage, V</description>
                 </macro>
             </macros>
             <valuemaps>
