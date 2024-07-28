@@ -47,14 +47,14 @@
                             <trigger_prototypes>
                                 <trigger_prototype>
                                     <uuid>7cf0bc49cac7455a9ed7849ac55d8556</uuid>
-                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.charge])&lt;40</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Charge &lt; 40%</name>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.charge])&lt;{$NUT.UPS.BATTERY.CHARGE.CRIT}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Charge &lt; {$NUT.UPS.BATTERY.CHARGE.CRIT}%</name>
                                     <priority>DISASTER</priority>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>914901e5f66244d2b4d0313b02f31925</uuid>
-                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.charge])&lt;90</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Charge &lt; 90%</name>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.charge])&lt;{$NUT.UPS.BATTERY.CHARGE.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Charge &lt; {$NUT.UPS.BATTERY.CHARGE.WARN}%</name>
                                     <priority>HIGH</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>
@@ -444,7 +444,17 @@
                     <macro>{$NUT.UPS.TEMPERATURE.MAX.WARN}</macro>
                     <value>50</value>
                     <description>Maximum UPS temperature</description>
-                </macro>                
+                </macro>
+                <macro>
+                    <macro>{$NUT.UPS.BATTERY.CHARGE.WARN}</macro>
+                    <value>90</value>
+                    <description>Warning level of battery charge</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.UPS.BATTERY.CHARGE.CRIT}</macro>
+                    <value>30</value>
+                    <description>Critical level of battery charge</description>
+                </macro>
             </macros>
             <valuemaps>
                 <valuemap>
