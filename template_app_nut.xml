@@ -448,6 +448,12 @@
                                     <priority>DISASTER</priority>
                                     <description>Unknown state</description>
                                 </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>335f73932fe0448198aa581d3cdecaba</uuid>
+                                    <expression>nodata(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.status],{$NUT.NODATA.INTERVAL.MAX.WARN})=1</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: No data from UPS for {$NUT.NODATA.INTERVAL.MAX.WARN} seconds</name>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
                             </trigger_prototypes>
                         </item_prototype>
                     </item_prototypes>
@@ -503,6 +509,11 @@
                     <macro>{$NUT.UPS.LOAD.MAX.WARN}</macro>
                     <value>80</value>
                     <description>Maximum UPS load in percentage</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.NODATA.INTERVAL.MAX.WARN}</macro>
+                    <value>300</value>
+                    <description>Maximum data absence interval in seconds</description>
                 </macro>
             </macros>
             <valuemaps>
