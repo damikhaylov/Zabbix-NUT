@@ -80,6 +80,15 @@
                                     <value>{#UPS.HOST}</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>67f7547bdc3647a3b534874dee8195c1</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.temperature])&gt;{$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Battery temperature &gt; {$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}°C</name>
+                                    <priority>HIGH</priority>
+                                    <type>MULTIPLE</type>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>07adabb5f9054684a48e8be725635a25</uuid>
@@ -106,7 +115,7 @@
                                 <trigger_prototype>
                                     <uuid>7f6cc36aed644a3cb82eaa55b961ad23</uuid>
                                     <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.temperature])&gt;{$NUT.UPS.TEMPERATURE.MAX.WARN}</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: UPS temperature &gt; {$NUT.UPS.TEMPERATURE.MAX.WARN}</name>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: UPS temperature &gt; {$NUT.UPS.TEMPERATURE.MAX.WARN}°C</name>
                                     <priority>HIGH</priority>
                                     <type>MULTIPLE</type>
                                 </trigger_prototype>
@@ -444,6 +453,11 @@
                     <macro>{$NUT.UPS.TEMPERATURE.MAX.WARN}</macro>
                     <value>50</value>
                     <description>Maximum UPS temperature</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}</macro>
+                    <value>40</value>
+                    <description>Maximum UPS battery temperature</description>
                 </macro>
                 <macro>
                     <macro>{$NUT.UPS.BATTERY.CHARGE.WARN}</macro>
