@@ -105,8 +105,8 @@
                             <trigger_prototypes>
                                 <trigger_prototype>
                                     <uuid>7f6cc36aed644a3cb82eaa55b961ad23</uuid>
-                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.temperature])&gt;50</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: UPS temperature &gt; 50</name>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.temperature])&gt;{$NUT.UPS.TEMPERATURE.MAX.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: UPS temperature &gt; {$NUT.UPS.TEMPERATURE.MAX.WARN}</name>
                                     <priority>HIGH</priority>
                                     <type>MULTIPLE</type>
                                 </trigger_prototype>
@@ -440,6 +440,11 @@
                     <value>localhost</value>
                     <description>List of UPS hosts for discovery</description>
                 </macro>
+                <macro>
+                    <macro>{$NUT.UPS.TEMPERATURE.MAX.WARN}</macro>
+                    <value>50</value>
+                    <description>Maximum UPS temperature</description>
+                </macro>                
             </macros>
             <valuemaps>
                 <valuemap>
