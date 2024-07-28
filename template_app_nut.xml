@@ -139,8 +139,15 @@
                             <name>UPS [{#UPS.VISIBLE_NAME}]: Date of manufacture of batteries</name>
                             <key>upsmon[{#UPS.NAME},{#UPS.HOST},battery.mfr.date]</key>
                             <delay>1h</delay>
-                            <trends>0</trends>
-                            <value_type>TEXT</value_type>
+                            <preprocessing>
+                                <step>
+                                    <type>REGEX</type>
+                                    <parameters>
+                                        <parameter>(\d\d\d\d)\/(\d\d)\/(\d\d)</parameter>
+                                        <parameter>\1\2\3</parameter>
+                                    </parameters>
+                                </step>
+                            </preprocessing>
                             <tags>
                                 <tag>
                                     <tag>application</tag>
@@ -155,6 +162,15 @@
                                     <value>{#UPS.HOST}</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>8f7b119e9b1b42bc8efe40ba80918a43</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.mfr.date]) + 20000 &lt; date()</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Date of manufacture of batteries &gt; 2 years</name>
+                                    <priority>HIGH</priority>
+                                    <manual_close>YES</manual_close>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>f9602043b90b4fc994f0113942293b1f</uuid>
