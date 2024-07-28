@@ -451,23 +451,23 @@
                 </macro>
                 <macro>
                     <macro>{$NUT.UPS.TEMPERATURE.MAX.WARN}</macro>
-                    <value>50</value>
-                    <description>Maximum UPS temperature</description>
+                    <value>40</value>
+                    <description>Maximum UPS temperature, °C</description>
                 </macro>
                 <macro>
                     <macro>{$NUT.UPS.BATTERY.TEMPERATURE.MAX.WARN}</macro>
                     <value>40</value>
-                    <description>Maximum UPS battery temperature</description>
+                    <description>Maximum UPS battery temperature, °C</description>
                 </macro>
                 <macro>
                     <macro>{$NUT.UPS.BATTERY.CHARGE.WARN}</macro>
                     <value>90</value>
-                    <description>Warning level of battery charge</description>
+                    <description>Warning level of battery charge in percentage</description>
                 </macro>
                 <macro>
                     <macro>{$NUT.UPS.BATTERY.CHARGE.CRIT}</macro>
                     <value>30</value>
-                    <description>Critical level of battery charge</description>
+                    <description>Critical level of battery charge in percentage</description>
                 </macro>
             </macros>
             <valuemaps>
