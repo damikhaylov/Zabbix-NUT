@@ -256,13 +256,13 @@
                                 <trigger_prototype>
                                     <uuid>b98314def2cb4187807d1db16891a39b</uuid>
                                     <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},input.voltage])&lt;{$NUT.INPUT.VOLTAGE.MIN.WARN}</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage &lt; {$NUT.INPUT.VOLTAGE.MIN.WARN} V</name>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage too low</name>
                                     <priority>DISASTER</priority>
                                 </trigger_prototype>
                                 <trigger_prototype>
                                     <uuid>ff36836abca34153983f31914d7aa63b</uuid>
                                     <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},input.voltage])&gt;{$NUT.INPUT.VOLTAGE.MAX.WARN}</expression>
-                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage &gt; {$NUT.INPUT.VOLTAGE.MAX.WARN} V</name>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage too high</name>
                                     <priority>DISASTER</priority>
                                 </trigger_prototype>
                             </trigger_prototypes>                            
