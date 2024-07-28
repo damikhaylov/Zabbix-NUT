@@ -155,6 +155,14 @@
                                     <value>{#UPS.HOST}</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>a28f280d39024f96971d4f844e782d99</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.voltage])&lt;last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},battery.voltage.nominal])</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: Battery voltage is below nominal</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>2cdf11bc4a1449d7a4afbbd5112f4876</uuid>
