@@ -265,7 +265,7 @@
                                     <name>UPS [{#UPS.VISIBLE_NAME}]: Input voltage too high</name>
                                     <priority>DISASTER</priority>
                                 </trigger_prototype>
-                            </trigger_prototypes>                            
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>3b8ad82e3c7c458281c3cd3e8fe5c605</uuid>
@@ -332,6 +332,14 @@
                                     <value>{#UPS.HOST}</value>
                                 </tag>
                             </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>278d6011a02247798df408eabefbe883</uuid>
+                                    <expression>last(/NUT by Zabbix agent/upsmon[{#UPS.NAME},{#UPS.HOST},ups.load])&gt;{$NUT.UPS.LOAD.MAX.WARN}</expression>
+                                    <name>UPS [{#UPS.VISIBLE_NAME}]: UPS load &gt; {$NUT.UPS.LOAD.MAX.WARN}%</name>
+                                    <priority>DISASTER</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
                             <uuid>5d4e30f7c56948eb8338986633444da9</uuid>
@@ -490,6 +498,11 @@
                     <macro>{$NUT.INPUT.VOLTAGE.MAX.WARN}</macro>
                     <value>253</value>
                     <description>Maximum input voltage, V</description>
+                </macro>
+                <macro>
+                    <macro>{$NUT.UPS.LOAD.MAX.WARN}</macro>
+                    <value>80</value>
+                    <description>Maximum UPS load in percentage</description>
                 </macro>
             </macros>
             <valuemaps>
